@@ -10,6 +10,17 @@
     @vite('resources/css/app.css')
 </head>
 <body>
-    <div id="app"></div>
+    {{-- Vueコンポーネントを使用する場合 --}}
+    {{-- <div id="app"></div>--}}
+    <div>
+        <h1>CSVアップロード機能</h1>
+    </div>
+    <div>
+        <form action="{{route('csv.store')}}" method="POST" enctype="multipart/form-data">
+            @csrf
+            <input type="file" name="csv.file">
+            <button type="submit">登録</button>
+        </form>
+    </div>
 </body>
 </html>
