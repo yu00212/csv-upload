@@ -16,6 +16,7 @@ return new class extends Migration
             $table->id();
             $table->integer('file_id')->comment('行が属するファイルのID');
             $table->string('representative_name')->comment('代表者名');
+            $table->string('representative_name_kana')->comment('代表者名(カナ)');
             $table->string('company_name')->comment('法人名');
             $table->string('company_name_kana')->comment('法人名(カナ)');
             $table->text('business_content')->nullable()->comment('事業内容');
