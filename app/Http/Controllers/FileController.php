@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\File;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use App\Events\CsvFileUploaded;
@@ -28,9 +29,17 @@ class FileController extends Controller
         // CSVファイルを一時ファイルとして保存
         $path = $files->store('csv', 'local');
 
+        // Fileモデルを作成し、DBにファイルの情報を保存
+        $file = new File();
+        $file->name = $files->getClientOriginalName();
+        $file->path = $path;
+        $file->save();
+
         // CSVファイルがアップロードされたことを通知するイベントを発行
-        event(new CsvFileUploaded($path));
+        event(new CsvFileUploaded($file));
 
+        Log::info('CSVアップロード処理が正常に完了しました。');
 
+        return back()->with('success', 'CSVファイルをアップロードしました。');
     }
 }
