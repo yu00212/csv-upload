@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\FailController;
+use App\Http\Controllers\FileController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,4 +14,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [FailController::class, 'index']);
+Route::get('/', [FileController::class, 'index']);
+Route::post('/store', [FileController::class, 'store'])->name('store.file');
