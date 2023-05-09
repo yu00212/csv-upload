@@ -15,4 +15,4 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [FileController::class, 'index']);
-Route::post('/store', [FileController::class, 'store'])->name('store.file');
+Route::post('/store', [FileController::class, 'store'])->name('csv.store');
