@@ -14,5 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// ホーム画面
 Route::get('/', [FileController::class, 'index']);
+// CSVファイル登録
 Route::post('/store', [FileController::class, 'store'])->name('csv.store');
+// CSVファイル削除
