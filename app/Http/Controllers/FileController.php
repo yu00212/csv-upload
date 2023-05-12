@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\File;
+use App\Models\Row;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use App\Events\CsvFileUploaded;
@@ -11,6 +12,8 @@ class FileController extends Controller
 {
     public function index()
     {
+        $files = Row::all();
+        dd($files);
         return view('home');
     }
 
