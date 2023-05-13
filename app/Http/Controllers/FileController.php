@@ -12,9 +12,10 @@ class FileController extends Controller
 {
     public function index()
     {
-        $files = Row::all();
-        dd($files);
-        return view('home');
+        // Fileモデルに登録されたCSVファイルを全て取得
+        $files = File::where('name', 'like', '%.csv')->get();
+
+        return view('home', compact('files'));
     }
 
     public function store(Request $request)

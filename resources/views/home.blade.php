@@ -22,5 +22,8 @@
             <button type="submit">登録</button>
         </form>
     </div>
+    @foreach($files as $file)
+        <p>{{ $file->name }}</p>
+    @endforeach
 </body>
 </html>
