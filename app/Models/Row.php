@@ -12,6 +12,7 @@ class Row extends Model
     protected $fillable = [
         'file_id',
         'representative_name',
+        'representative_name_kana',
         'company_name',
         'company_name_kana',
         'business_content',

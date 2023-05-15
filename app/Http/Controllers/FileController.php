@@ -39,8 +39,8 @@ class FileController extends Controller
         $file->path = $path;
         $file->save();
 
-        // CSVファイルがアップロードされたことを通知するイベントを発行
-        event(new CsvFileUploaded($file));
+        // イベントをディスパッチ（発行）
+        CsvFileUploaded::dispatch($file);
 
         Log::info('CSVアップロード処理が正常に完了しました。');
 
